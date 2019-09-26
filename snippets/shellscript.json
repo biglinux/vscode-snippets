@@ -1,0 +1,105 @@
+{
+	// Place your snippets for shellscript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	  "Loop infinito": {
+		"prefix": "while2",
+		"body": "#loop infinito usando while\nwhile :; do\n\techo \"Isso será executado infinitamente até que seja pressionado [CTRL+C].\"\ndone",
+		"description": "Loop infinito"
+	  },
+	  "Loop até 5": {
+		"prefix": "while",
+		"body": "#loop até 5 usando while\nCONTADOR=0\nwhile [  $CONTADOR -lt 5 ]; do\n      echo \"$CONTADOR\";\n      let CONTADOR=CONTADOR+1;\ndone",
+		"description": "Loop até 5"
+	  },
+	  "until, o while invertido": {
+		"prefix": "until",
+		"body": "#O loop com until é o oposto do loop com while, irá repetir o loop enquanto a condição não for verdadeira, veja o exemplo que verifica se o navegador Firefox está aberto.\nuntil ps -e | grep firefox > /dev/null\ndo\n      echo \"O navegador Firefox NÃO está em execução.\"\n      sleep 10\ndone",
+		"description": "until, o while invertido"
+	  },
+	  "Aguardar segundos": {
+		"prefix": "sleep",
+		"body": "#Para por 5 segundos e depois prossegue normalmente.\nsleep 5",
+		"description": "Aguardar segundos"
+	  },
+	  "Criar pastas": {
+		"prefix": "mkdir",
+		"body": "#Cria pastas e subpastas, exemplo de uso: mkdir -p /home/usuario/pasta\nmkdir -p",
+		"description": "Criar pastas"
+	  },
+	  "loop de lista": {
+		"prefix": "for2",
+		"body": "#Exemplo de for, onde irá executar o trecho entre do e done substituindo cada vez a variável $i por variavel 1, bananas e uvas.\nfor i  in  \"variavel 1\" \"bananas\" \"uvas\"; do\n    echo \"$i\"\ndone",
+		"description": "loop de lista"
+	  },
+	  "loop de comando": {
+		"prefix": "for",
+		"body": "#Exemplo de for, onde irá executar o trecho entre do e done uma vez para cada palavra listada no comando ls ~\nfor i  in  $(ls ~); do\n    echo \"$i\"\ndone",
+		"description": "loop de comando"
+	  },
+	  "echo, exibir na tela": {
+		"prefix": "echo",
+		"body": "#Insira o conteúdo entre os 2 EOF sem se preocupar com aspas\necho $\"\"",
+		"description": "echo, exibir na tela"
+	  },
+	  "case, uma opção ao if": {
+		"prefix": "case",
+		"body": "#Confere o primeiro parametro informado com as opções a seguir, exemplo de uso: ./script start\ncase \"$1\" in\n\n    start)\n\techo \"iniciando\"\n\texit\n    ;;\n\n    stop)\n\techo \"parando\"\n\texit\n    ;;\n\n    restart)\n\techo \"reiniciando\"\n\texit\n    ;;\n\nesac",
+		"description": "case, uma opção ao if"
+	  },
+	  "IFS, altera a detecção de qubra de linhas": {
+		"prefix": "IFS",
+		"body": "#Altera a variável IFS para quebra de linha.\n#IFS é uma variável usada por vários comandos, entre eles o for, como forma de delimitador, onde normalmente é utilizado quebra de linha ou espaço em branco, nesse exemplo será considerado apenas a quebra de linha.\nOIFS=$IFS\nIFS=$'\n'\n#Insira aqui os comandos a serem executados com IFS somente para quebra de linha.\n\n\n#Restaura variável IFS para o padrão do sistema.\nIFS=$OIFS",
+		"description": "IFS, altera a detecção de qubra de linhas"
+	  },
+	  "Cria uma função": {
+		"prefix": "funcao",
+		"body": "#A função é como criar um script dentro do script, que podemos executa-lo chamando o nome da função, segue exemplo:\n#Criando a função\n\nfuncao1 () {\n  echo \"Essa função apenas exibe esse texto. E esse complemento: $1\"\n}\n\n#Executando a função, e incluindo uma variável dentro da função\nfuncao1 \"Complemento adicionado à função.\"\n",
+		"description": "Cria uma função"
+	  },
+	  "EOF, equivale ao echo, mas não é preciso preocupar com aspas": {
+		"prefix": "EOF",
+		"body": "#Insira o conteúdo entre os 2 EOF sem se preocupar com aspas\ncat << EOF\n\n\nEOF",
+		"description": "EOF, equivale ao echo, mas não é preciso preocupar com aspas"
+	  },
+	  "Exibe as linhas que não coincidem": {
+		"prefix": "grep -v ",
+		"body": "#Exibe as linhas que não coincidem\ngrep -v",
+		"description": "Exibe as linhas que não coincidem"
+	  },
+	  "Exibe linhas antes de cada resultado encontrado": {
+		"prefix": "grep -B 2 ",
+		"body": "#Exibe duas linhas antes de cada resultado encontrado\ngrep -B 2",
+		"description": "Exibe linhas antes de cada resultado encontrado"
+	  },
+	  "Exibe linhas após cada resultado encontrado": {
+		"prefix": "grep -A 2 ",
+		"body": "#Exibe duas linhas após cada resultado encontrado\ngrep -A 2",
+		"description": "Exibe linhas após cada resultado encontrado"
+	  },
+	  "Ignora a diferença entre letras maiúsculas e minúsculas": {
+		"prefix": "grep -i ",
+		"body": "#Ignora a diferença entre letras maiúsculas e minúsculas\ngrep -i",
+		"description": "Ignora a diferença entre letras maiúsculas e minúsculas"
+	  },
+	  "Exibe apenas o número de linhas que seriam exibidas": {
+		"prefix": "grep -c ",
+		"body": "#Exibir apenas o número de linhas que seriam exibidas\ngrep -c",
+		"description": "Exibe apenas o número de linhas que seriam exibidas"
+	  },
+	  "Exibe o número de cada linha antes do resultado": {
+		"prefix": "grep -n ",
+		"body": "#Exibe o número de cada linha antes do resultado\ngrep -n",
+		"description": "Exibe o número de cada linha antes do resultado"
+	  }
+}

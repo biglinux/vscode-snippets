@@ -1,0 +1,150 @@
+{
+	// Place your snippets for shellscript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	  "Insere uma linha antes da linha que possui uma palavra específica": {
+		"prefix": "sedlinhaantesdapalavra",
+		"body": "#Insere uma linha antes da linha que possui uma palavra específica, no caso insere uma linha com o conteúdo \"Nova linha\", antes das linhas que possuem a palavra Podemos\nsed '/Podemos/{h;s/.*/Nova Linha/;p;x;}'",
+		"description": "Insere uma linha antes da linha que possui uma palavra específica"
+	  },
+	  "Inclui linha depois de uma determinada linha": {
+		"prefix": "sedlinhadepoisdalinha",
+		"body": "#Inclui linha após uma determinada linha\nsed -e '3a' -e 'Nova linha inserida após a linha 3'",
+		"description": "Inclui linha depois de uma determinada linha"
+	  },
+	  "Insere uma linha após a linha que possui uma palavra específica": {
+		"prefix": "sedlinhadepoisdapalavra",
+		"body": "#Insere uma linha após a linha que possui uma palavra específica, no caso insere uma linha com o conteúdo \"Nova linha\", após as linhas que possuem a palavra Podemos\nsed '/Podemos/{p;s/.*/Nova linha/;}'",
+		"description": "Insere uma linha após a linha que possui uma palavra específica"
+	  },
+	  "Inclui linha antes de uma determinada linha": {
+		"prefix": "sedlinhaantesdalinha",
+		"body": "#Inclui linha antes de uma determinada linha\nsed -e '3i' -e 'Nova linha inserida antes da linha 3'",
+		"description": "Inclui linha antes de uma determinada linha"
+	  },
+	  "Inclui texto no inicio de uma linha especifica": {
+		"prefix": "sedinserepalavranoinicio",
+		"body": "#Incluir texto no início de uma linha específica\nsed '2s/^/Incluído no inicio da linha 2 /'",
+		"description": "Inclui texto no inicio de uma linha especifica"
+	  },
+	  "Inclui texto no final de uma linha especifica": {
+		"prefix": "sedinserepalavranofim",
+		"body": "#Incluir texto no final de uma linha específica\nsed '2s/$/Incluído no final da linha 2 /'",
+		"description": "Inclui texto no final de uma linha especifica"
+	  },
+	  "Exibe da linha 2 a 8": {
+		"prefix": "sedexibelinhas",
+		"body": "#Exibe um intervalo de linhas, no exemplo linha 2 à 8. Para exibir a última linha troque o número pelo caractere $\nsed '2,8!d'",
+		"description": "Exibe da linha 2 a 8"
+	  },
+	  "Exibe apenas a linha 3": {
+		"prefix": "sedexibelinha",
+		"body": "#Exibe apenas uma linha, no exemplo a linha 3. Para exibir a última linha troque o número pelo caractere $\nsed '3!d'",
+		"description": "Exibe apenas a linha 3"
+	  },
+	  "Remove todas as quebras de linha": {
+		"prefix": "sedapagaquebrasdelinha",
+		"body": "#Remove todas as quebras de linha e deixa todo o texto com apenas uma linha\nsed ':a;$!N;s/\n//;ta;'",
+		"description": "Remove todas as quebras de linha"
+	  },
+	  "Apagar os primeiros caracteres de todas as linhas": {
+		"prefix": "sedapagaprimeirocaractere",
+		"body": "#Apaga o primeiro caractere de todas as linhas, insira mais pontos para apagar mais caracteres\nsed 's/.//'",
+		"description": "Apagar os primeiros caracteres de todas as linhas"
+	  },
+	  "Apagar todas as linhas entre entre duas ocorrências": {
+		"prefix": "sedapagalinhasentreocorrencias",
+		"body": "#Apagar todas as linhas entre entre duas ocorrências, no exemplo apaga todas as linhas que estiverem entre a primeira linha com a palavra linux até a linha com a palavra livre\nsed '/linux/,/livre/d'",
+		"description": "Apagar todas as linhas entre entre duas ocorrências"
+	  },
+	  "Apaga linhas em branco": {
+		"prefix": "sedapagalinhasembranco",
+		"body": "#Apaga linhas em branco\nsed '/^$/d'",
+		"description": "Apaga linhas em branco"
+	  },
+	  "Apaga linhas que contem determinados caracteres": {
+		"prefix": "sedapagalinhapeloscaracteres",
+		"body": "#Apaga linhas que contem determinados caracteres, no exemplo as linhas que contenham a palavra carro\nsed '/carro/d'",
+		"description": "Apaga linhas que contem determinados caracteres"
+	  },
+	  "Remove uma linha pelo númeor": {
+		"prefix": "sedapagalinhapelonumero",
+		"body": "#Remove uma linha, no exemplo a linha 2. O caractere $ representa a última linha.\nsed '2d'",
+		"description": "Remove uma linha pelo númeor"
+	  },
+	  "Apaga intervalo de linhas": {
+		"prefix": "sedapagaintervalo",
+		"body": "#Apagar intervalo de linhas, no exemplo a linha 2 a 8. O caractere $ representa a última linha.\nsed '2,8d'",
+		"description": "Apaga intervalo de linhas"
+	  },
+	  "Apaga espaços em branco consecutivos": {
+		"prefix": "sedapagaespacoduplo",
+		"body": "#Apaga espaços em branco consecutivos, ou seja, remove espaços duplicados\nsed 's/[ ]+/ /g'",
+		"description": "Apaga espaços em branco consecutivos"
+	  },
+	  "Apaga a coluna especificada": {
+		"prefix": "sedapagacoluna",
+		"body": "#Apaga a coluna especificada, no exemplo a coluna número 3\nsed 's/.//3'",
+		"description": "Apaga a coluna especificada"
+	  },
+	  "Apaga apenas a primeira linha que contem determinados caracteres": {
+		"prefix": "sedprimeiralinhaquecasar",
+		"body": "#Apaga apenas a primeira linha que contem determinados caracteres, no exemplo a linha que contiver a palavra carro\nsed '/carro/{H;x;/^\n/d;g;}'",
+		"description": "Apaga apenas a primeira linha que contem determinados caracteres"
+	  },
+	  "Tornar todas as letras do texto minusculas": {
+		"prefix": "sedmaiusculas",
+		"body": "#Tornar todas as letras do texto minúsculas\nsed 'y/ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÉÊÍÓÔÕÚÇ/abcdefghijklmnopqrstuvwxyzàáâãéêíóôõúç/'",
+		"description": "Tornar todas as letras do texto minusculas"
+	  },
+	  "Tornar todas as letras do texto maiúsculas": {
+		"prefix": "sedmaiusculas",
+		"body": "#Tornar todas as letras do texto maiúsculas\nsed 'y/abcdefghijklmnopqrstuvwxyzàáâãéêíóôõúç/ABCDEFGHIJKLMNOPQRSTUVWXYZÀÁÂÃÉÊÍÓÔÕÚÇ/'",
+		"description": "Tornar todas as letras do texto maiúsculas"
+	  },
+	  "Altera parâmetro de arquivos de configuração": {
+		"prefix": "sedtrocaparametro",
+		"body": "#Altera parâmetro de arquivos de configuração.\n#Esse comando facilita a troca de configuração de arquivos que seguem o padrão parecido com esse: VARIAVEL=valor\n#No exemplo troca qualquer valor atribuído à variável name pelo valor Debian.\nsed 's|^ *\bNAME\b *=.*|NAME=Debian|'",
+		"description": "Altera parâmetro de arquivos de configuração"
+	  },
+	  "Troca todo o texto de uma linha específica": {
+		"prefix": "sedtrocaotextodeumalinhaespecifica",
+		"body": "#Substitui todo o texto de uma linha específica\nsed '3s/.*/Novo texto da linha 3/'",
+		"description": "Troca todo o texto de uma linha específica"
+	  },
+	  "Trocar todas as ocorrências do texto": {
+		"prefix": "sedtrocapalavra",
+		"body": "#Trocar todas as ocorrências do texto, no exemplo troca a palavra azul por verde em todo o texto\nsed 's/azul/verde/g'",
+		"description": "Trocar todas as ocorrências do texto"
+	  },
+	  "Substitui uma palavra por outra, desde que uma terceira palavra esteja presente na linha": {
+		"prefix": "sedtrocadesdequeterceirapalavraestejapresente",
+		"body": "#Substitui uma palavra por outra, desde que uma terceira palavra esteja presente na linha, no exemplo a palavra Script substituirá a palavra Linux nas linhas que também possuírem a palavra livro\nsed '/livro/s/Linux/Script/g'",
+		"description": "Substitui uma palavra por outra, desde que uma terceira palavra esteja presente na linha"
+	  },
+	  "Trocar caracteres apenas de uma ocorrência específica em cada linha": {
+		"prefix": "sedtrocaocorrenciaespecificaemcadalinha",
+		"body": "#Trocar caracteres apenas de uma ocorrência específica em cada linha, no exemplo será trocada a terceira ocorrência da palavra azul, pela palavra verde\nsed 's/azul/verde/3'",
+		"description": "Trocar caracteres apenas de uma ocorrência específica em cada linha"
+	  },
+	  "Substitui palavras apenas em linhas específicas": {
+		"prefix": "sedtrocapalavrasemlinhasespecificas",
+		"body": "#Substitui palavras apenas em linhas específicas, no exemplo substitui usar por fazer nas linhas entre 2 e 6\nsed '2,6s/usar/fazer/'",
+		"description": "Substitui palavras apenas em linhas específicas"
+	  },
+	  "Troca o intervalo entre os caracteres": {
+		"prefix": "sedtrocaintervalo",
+		"body": "#Troca o intervalo entre os caracteres, no exemplo troca todo o conteúdo entre sed e legal, incluindo as palavras sed e legal, por: novo texto trocado utilizando o sed\nsed 's/sed.*legal/novo texto trocado utilizando o sed/g'",
+		"description": "Troca o intervalo entre os caracteres"
+	  }
+}

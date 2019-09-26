@@ -1,0 +1,156 @@
+{
+	// Place your snippets for shellscript here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"Confere se o arquivo existe": {
+		"prefix": "if -f",
+		"body": "#Confere se o arquivo existe\nif [ -f \"/bin/bash\" ]; then\n    echo \"O arquivo existe\"\nelse\n    echo \"O arquivo não existe\"\nfi",
+		"description": "Confere se o arquivo existe"
+	  },
+	  "Confere se o arquivo, diretório, link, ou arquivo especial existe": {
+		"prefix": "if -e",
+		"body": "#Confere se o arquivo, diretório, link, ou arquivo especial existe\nif [ -e \"/bin/bash\" ]; then\n    echo \"O arquivo ou diretório não existe\"\nelse\n    echo \"O arquivo ou diretório existe\"\nfi",
+		"description": "Confere se o arquivo, diretório, link, ou arquivo especial existe"
+	  },
+	  "Confere se a desigualdade é verdadeira": {
+		"prefix": "if !=",
+		"body": "#Confere se a desigualdade é verdadeira\nif [ \"0\" != \"1\" ]; then\n    echo \"A desigualdade é verdadeira\"\nelse\n    echo \"A desigualdade não é verdadeira\"\nfi",
+		"description": "Confere se a desigualdade é verdadeira"
+	  },
+	  "Como utilizar checagens multiplas com elif": {
+		"prefix": "if elif",
+		"body": "#############\n#O uso do elif permite inserir uma série de checagens, iguais as utilizadas no if\n#As chacagens são interrompidas após a primeira checagem ser considerada ok\n#############\nif [ \"1\" = \"0\" ]\nthen\n    echo \"Primeira checagem ok\"\n\nelif [ \"1\" = \"1\" ]\nthen\n    echo \"Segunda checagem ok\"\n\nelif [ \"1\" = \"2\" ]\nthen\n    echo \"Terceira checagem ok\"\n\nelse\n    echo \"Nenhuma checagem foi suprida.\"\nfi",
+		"description": "Como utilizar checagens multiplas com elif"
+	  },
+	  "Como utilizar checagens multiplas AND e OR": {
+		"prefix": "if || e &&",
+		"body": "#############\n#As checagens podem ser combinadas por OR, que é representado por ||, nesses casos, será considerado ok se respeitar uma checagem ou outra.\n#As checagens podem ser combinadas por AND, que é representado por &&, nesses casos, será considerado ok se respeitar TODAS as checagens.\n#############\n#Exemplo de checagens multiplas, aonde todas precisam ser respeitadas\nif [ \"1\" = \"1\" ] && [ \"2\" = \"2\" ];then\n    echo \"Checagens OK.\"\nelse\n    echo \"Checagens não correspondem.\"\nfi\n\n#Exemplo de checagens multiplas, aonde apenas uma precisa ser respeitada\nif [ \"1\" = \"1\" ] || [ \"1\" = \"2\" ];then\n    echo \"Checagens OK.\"\nelse\n    echo \"Checagens não correspondem.\"\nfi\n\n#Exemplo de checagens múltiplas mistas.\nif [ \"1\" = \"0\" ] || [ \"1\" = \"1\" ] && [ -e \"/boot\" ] || [ -w \"/etc\" ]\nthen\n    echo \"Checagens OK.\"\nelse\n    echo \"Checagens não correspondem.\"\nfi",
+		"description": "Como utilizar checagens multiplas AND e OR"
+	  },
+	  "Confere se o arquivo não existe": {
+		"prefix": "if ! -f",
+		"body": "#Confere se o arquivo não existe\nif [ ! -f \"/bin/bash\" ]; then\n    echo \"O arquivo não existe\"\nelse\n    echo \"O arquivo existe\"\nfi",
+		"description": "Confere se o arquivo não existe"
+	  },
+	  "Confere se o arquivo, diretório, link, ou arquivo especial NÃO existe": {
+		"prefix": "if ! -e",
+		"body": "#Confere se o arquivo, diretório, link, ou arquivo especial NÃO existe\nif [ ! -e \"/bin/bash\" ]; then\n    echo \"O arquivo ou diretório não existe\"\nelse\n    echo \"O arquivo ou diretório existe\"\nfi",
+		"description": "Confere se o arquivo, diretório, link, ou arquivo especial NÃO existe"
+	  },
+	  "Confere se a variável NÃO é nula": {
+		"prefix": "if -z)",
+		"body": "#Confere se a variável NÃO é nula\nif [ \"$variavelX\" ]\nthen\n    echo \"A variável existe.\"\nelse\n    echo \"A variável NÃO existe\"\nfi",
+		"description": "Confere se a variável NÃO é nula"
+	  },
+	  "Confere se a variável é nula": {
+		"prefix": "if -z)",
+		"body": "#Confere se a variável é nula\nif [ -z \"$variavelX\" ]\nthen\n    echo \"A variável está vazia.\"\nelse\n    echo \"A variável NÃO está vazia.\"\nfi",
+		"description": "Confere se a variável é nula"
+	  },
+	  "Confere se o arquivo ou diretório NÃO possui permissão de leitura": {
+		"prefix": "if ! -r)",
+		"body": "#Confere se o arquivo ou diretório NÃO possui permissão de leitura\nif [ ! -r \"/etc\" ]\nthen\n    echo \"O arquivo ou diretório NÃO possui permissão de leitura para o usuário $USER.\"\nelse\n    echo \"O arquivo ou diretório possui permissão de leitura para o usuário $USER.\"\nfi",
+		"description": "Confere se o arquivo ou diretório NÃO possui permissão de leitura"
+	  },
+	  "Confere se o arquivo NÃO possui permissão de execução": {
+		"prefix": "if ! -x)",
+		"body": "#Confere se o arquivo NÃO possui permissão de execução\nif [ ! -x \"/bin/bash\" ]\nthen\n    echo \"O arquivo NÃO possui permissão de execução.\"\nelse\n    echo \"O arquivo possui permissão de execução.\"\nfi",
+		"description": "Confere se o arquivo NÃO possui permissão de execução"
+	  },
+	  "Confere se o arquivo ou diretório NÃO possui permissão de escrita": {
+		"prefix": "if ! -w)",
+		"body": "#Confere se o arquivo ou diretório NÃO possui permissão de escrita\nif [ ! -w \"/etc\" ]\nthen\n    echo \"O arquivo ou diretório NÃO possui permissão de gravação para o usuário $USER.\"\nelse\n    echo \"O arquivo ou diretório possui permissão de gravação para o usuário $USER.\"\nfi",
+		"description": "Confere se o arquivo ou diretório NÃO possui permissão de escrita"
+	  },
+	  "Confere se o arquivo ou diretório pertence a um grupo que o usuário que está executando o script": {
+		"prefix": "if -G ",
+		"body": "#Confere se o arquivo ou diretório pertence a um grupo que o usuário que está executando o script\nif [ -G \"$HOME\" ]\nthen\n    echo \"O arquivo ou diretório pertence a um grupo que o usuário $USER também pertence.\"\nelse\n    echo \"O arquivo ou diretório NÃO pertence a um grupo que o usuário $USER também pertence.\"\nfi",
+		"description": "Confere se o arquivo ou diretório pertence a um grupo que o usuário que está executando o script"
+	  },
+	  "Confere se o usuário tem permissões de root (administrador)": {
+		"prefix": "if test $(id -u)",
+		"body": "#Confere se o usuário tem permissões de root (administrador)\nif test $(id -u) != 0\nthen\n    echo \"Usuário sem permissão de root, cancelando o processo.\"\n    exit\nfi",
+		"description": "Confere se o usuário tem permissões de root (administrador)"
+	  },
+	  "Confere se o arquivo ou diretório possui permissão de leitura": {
+		"prefix": "if -r",
+		"body": "#Confere se o arquivo ou diretório possui permissão de leitura\nif [ -r \"/etc\" ]\nthen\n    echo \"O arquivo ou diretório possui permissão de leitura para o usuário $USER.\"\nelse\n    echo \"O arquivo ou diretório NÃO possui permissão de leitura para o usuário $USER.\"\nfi",
+		"description": "Confere se o arquivo ou diretório possui permissão de leitura"
+	  },
+	  "Confere se o arquivo possui permissão de execução": {
+		"prefix": "if -x",
+		"body": "#Confere se o arquivo possui permissão de execução\nif [ -x \"/bin/bash\" ]\nthen\n    echo \"O arquivo possui permissão de execução.\"\nelse\n    echo \"O arquivo NÃO possui permissão de execução.\"\nfi",
+		"description": "Confere se o arquivo possui permissão de execução"
+	  },
+	  "Confere se o arquivo ou diretório possui permissão de escrita": {
+		"prefix": "if -w",
+		"body": "#Confere se o arquivo ou diretório possui permissão de escrita\nif [ -w \"/etc\" ]\nthen\n    echo \"O arquivo ou diretório possui permissão de gravação para o usuário $USER.\"\nelse\n    echo \"O arquivo ou diretório NÃO possui permissão de gravação para o usuário $USER.\"\nfi",
+		"description": "Confere se o arquivo ou diretório possui permissão de escrita"
+	  },
+	  "Arquivo ou diretório pertence ao usuário que está executando o script": {
+		"prefix": "if ! -O",
+		"body": "#Arquivo ou diretório pertence ao usuário que está executando o script\nif [ ! -O \"$HOME\" ]\nthen\n    echo \"O arquivo ou diretório pertence ao usuário $USER.\"\nelse\n    echo \"O arquivo ou diretório NÃO pertence ao usuário $USER.\"\nfi",
+		"description": "Arquivo ou diretório pertence ao usuário que está executando o script"
+	  },
+	  "Confere se o arquivo ou diretório NÃO pertence a um grupo que o usuário que está executando o script está incluso": {
+		"prefix": "if ! -G",
+		"body": "#Confere se o arquivo ou diretório NÃO pertence a um grupo que o usuário que está executando o script está incluso\nif [ ! -G \"$HOME\" ]\nthen\n    echo \"O arquivo ou diretório NÃO pertence a um grupo que o usuário $USER também pertence.\"\nelse\n    echo \"O arquivo ou diretório pertence a um grupo que o usuário $USER também pertence.\"\nfi",
+		"description": "Confere se o arquivo ou diretório NÃO pertence a um grupo que o usuário que está executando o script está incluso"
+	  },
+	  "Confere se um número é menor que o outro": {
+		"prefix": "if -lt",
+		"body": "#Confere se um número é menor que o outro\nif [ \"1\" -lt \"2\" ]; then\n    echo \"É menor que\"\nelse\n    echo \"Não é menor que\"\nfi",
+		"description": "Confere se um número é menor que o outro"
+	  },
+	  "Confere se um número é menor ou igual ao outro": {
+		"prefix": "if -le",
+		"body": "#Confere se um número é menor ou igual ao outro\nif [ \"1\" -le \"2\" ]; then\n    echo \"É menor ou igual\"\nelse\n    echo \"Não é menor ou igual\"\nfi",
+		"description": "Confere se um número é menor ou igual ao outro"
+	  },
+	  "Arquivo ou diretório é mais recente": {
+		"prefix": "if -nt",
+		"body": "#Arquivo ou diretório é mais recente\nif [ \"arquivo2\" -nt \"arquivo1\" ]\nthen\n    echo \"O arquivo é mais recente.\"\nelse\n    echo \"O arquivo NÃO é mais recente.\"\nfi",
+		"description": "Arquivo ou diretório é mais recente"
+	  },
+	  "Arquivo ou diretório é mais antigo": {
+		"prefix": "if -ot",
+		"body": "#Arquivo ou diretório é mais antigo\nif [ \"arquivo1\" -ot \"arquivo2\" ]\nthen\n    echo \"O arquivo é mais antigo.\"\nelse\n    echo \"O arquivo NÃO é mais antigo.\"\nfi",
+		"description": "Arquivo ou diretório é mais antigo"
+	  },
+	  "Confere se um número é maior que o outro": {
+		"prefix": "if -gt",
+		"body": "#Confere se um número é maior que o outro\nif [ \"2\" -gt \"1\" ]; then\n    echo \"É maior que\"\nelse\n    echo \"Não é maior que\"\nfi",
+		"description": "Confere se um número é maior que o outro"
+	  },
+	  "Confere se um número é maior ou igual ao outro": {
+		"prefix": "if -ge",
+		"body": "#Confere se um número é maior ou igual ao outro\nif [ \"1\" -ge \"2\" ]; then\n    echo \"É maior ou igual\"\nelse\n    echo \"Não é maior ou igual\"\nfi",
+		"description": "Confere se um número é maior ou igual ao outro"
+	  },
+	  "Confere se a igualdade é verdadeira": {
+		"prefix": "if ! -d",
+		"body": "#Confere se a igualdade é verdadeira\nif [ \"1\" = \"1\" ]; then\n    echo \"A igualdade é verdadeira\"\nelse\n    echo \"A igualdade não é verdadeira\"\nfi",
+		"description": "Confere se a igualdade é verdadeira"
+	  },
+	  "Confere se o diretório NÃO existe": {
+		"prefix": "if ! -d",
+		"body": "#Confere se o diretório NÃO existe\nif [ ! -d \"/boot\" ]\nthen\n    echo \"O diretório existe\"\nelse\n    echo \"O diretório NÃO existe\"\nfi",
+		"description": "Confere se o diretório NÃO existe"
+	  },
+	  "Confere se o diretório existe": {
+		"prefix": "if -d",
+		"body": "#Confere se o diretório existe\nif [ -d \"/boot\" ]\nthen\n    echo \"O diretório existe\"\nelse\n    echo \"O diretório NÃO existe\"\nfi",
+		"description": "Confere se o diretório existe"
+	  }
+}
